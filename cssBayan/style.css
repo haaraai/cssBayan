@@ -1,3 +1,8 @@
+:root {
+    --blue: rgb(0, 0, 255);
+    --pink: rgb(255, 0, 255);
+}
+
 *,
 *::before,
 *::after {
@@ -9,4 +14,81 @@
 
 img {
     vertical-align: top;
+}
+
+html,
+body {
+    font-family: 'Prompt', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.05rem;
+}
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.accordion__container {
+    width: 75%;
+    margin: 1vh auto;
+    padding: 0 1rem;
+    overflow: hidden;
+}
+
+input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.accordion__item-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0 0.2rem;
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--blue);
+    border-bottom: 5px dashed var(--blue);
+}
+
+.accordion__item-label:hover {
+    color: var(--pink);
+    border-bottom: 5px dashed var(--pink);
+}
+
+.accordion__item-label:hover::after {
+    content: "👉";
+    transition: all 0.35s ease;
+    visibility: visible;
+}
+
+.accordion__item-content {
+    max-height: 0;
+    transition: all 0.35s;
+}
+
+.accordion__item-content>img {
+    display: flex;
+    margin: 0 auto;
+    padding: 1rem 0;
+    cursor: pointer;
+    max-width: 80vh;
+    min-height: 100%;
+}
+
+input:checked+.accordion__item-label::after {
+    transform: rotate(90deg);
+    color: var(--pink);
+}
+
+input:checked~.accordion__item-label {
+    color: var(--pink);
+    border-bottom: 5px solid var(--pink);
+}
+
+input:checked~.accordion__item-content {
+    max-height: 100vh;
 }
