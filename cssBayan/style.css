@@ -88,9 +88,8 @@ input {
     margin: 0 auto;
     padding: 1rem 0;
     cursor: pointer;
-    max-width: 100%;
+    max-width: 85%;
     height: auto;
-
 }
 
 input:checked+.accordion__item-label::after {
@@ -106,6 +105,10 @@ input:checked~.accordion__item-label {
 input:checked~.accordion__item-content {
     max-height: 100vh;
 }
+
+
+
+
 
 @media (max-width: 820px) {
     h1 {
